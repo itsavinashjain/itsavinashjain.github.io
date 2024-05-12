@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://cdpn.io/dope/fullpage/KJYMZz?anon=true&view= -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  
+
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111">
+
+
+
+  
+    <script src="./stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js.download"></script>
+
+
+  <title>CodePen - Dev Challenge, Week 3</title>
+
+    <link rel="canonical" href="https://codepen.io/dope/pen/KJYMZz">
+  <link href="./css" rel="stylesheet">
+  <link rel="stylesheet" href="./normalize.min.css">
+
+  
+  
+<style>
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #D9D7DD;
+}
+
+.clock {
+  border-radius: 100%;
+  background: #ffffff;
+  font-family: "Montserrat";
+  border: 5px solid white;
+  box-shadow: inset 2px 3px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.wrap {
+  overflow: hidden;
+  position: relative;
+  width: 350px;
+  height: 350px;
+  border-radius: 100%;
+}
+
+.minute,
+.hour {
+  position: absolute;
+  height: 100px;
+  width: 6px;
+  margin: auto;
+  top: -27%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: black;
+  transform-origin: bottom center;
+  transform: rotate(0deg);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.minute {
+  position: absolute;
+  height: 130px;
+  width: 4px;
+  top: -38%;
+  left: 0;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  transform: rotate(90deg);
+}
+
+.second {
+  position: absolute;
+  height: 90px;
+  width: 2px;
+  margin: auto;
+  top: -26%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 4px;
+  background: #FF4B3E;
+  transform-origin: bottom center;
+  transform: rotate(180deg);
+  z-index: 1;
+}
+
+.dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 100px;
+  background: white;
+  border: 2px solid #1b1b1b;
+  border-radius: 100px;
+  margin: auto;
+  z-index: 1;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+</head>
+
+<body translate="no">
+  <div class="clock">
+  <div class="wrap">
+    <span class="hour" style="transform: rotate(330deg);"></span>
+    <span class="minute" style="transform: rotate(102deg);"></span>
+    <span class="second" style="transform: rotate(30deg);"></span>
+    <span class="dot"></span>
+  </div>
+</div>
+  
+      <script id="rendered-js">
+var inc = 1000;
+
+clock();
+
+function clock() {
+  const date = new Date();
+
+  const hours = (date.getHours() + 11) % 12 + 1;
+  const minutes = date.getMinutes();
+  const seconds = date.getSeconds();
+
+  const hour = hours * 30;
+  const minute = minutes * 6;
+  const second = seconds * 6;
+
+  document.querySelector('.hour').style.transform = `rotate(${hour}deg)`;
+  document.querySelector('.minute').style.transform = `rotate(${minute}deg)`;
+  document.querySelector('.second').style.transform = `rotate(${second}deg)`;
+}
+
+setInterval(clock, inc);
+//# sourceURL=pen.js
+    </script>
+
+  
+
+
+
+</body></html>
